@@ -2,3 +2,7 @@ span.popOut{
     color: orange;
 }
 
+img.social-icon{
+    width: 50px;
+    border-radius: 50%;
+}
