@@ -2,22 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 import Navigation from './components/Navigation';
 import About from './components/About';
-import { BrowserRouter as Router, Route, Link, Routes,  Outlet  } from 'react-router-dom';
+import { Router, Route, Routes ,  browserHistory, IndexRoute } from 'react-router'
+import { HashRouter } from 'react-router-dom'
 import HomePage from './components/HomePage';
 
 function App() {
+
   return (
     <div className='App'>
-      <Router>
+      <HashRouter>
         <Navigation></Navigation>
         <div className = "content">
           <Routes>
-              <Route path = "/Portfolio" element = {<HomePage/>} ></Route>
-              <Route path = "/Portfolio/About" element = {<About/>}></Route>
+              <Route path = "/" element = {<HomePage/>} ></Route>
+              <Route path = "/About" element = {<About/>}></Route>
               <Route></Route>
           </Routes>
         </div>
-      </Router>
+      </HashRouter>
     </div>
   );
 }

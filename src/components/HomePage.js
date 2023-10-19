@@ -47,6 +47,7 @@ const HomePage = () =>{
                         <Row style = {{marginTop: "20px"}}>
                             <Col>
                                 <Button
+                                    href = "/#/About"
                                     style={{
                                         borderRadius: "15px",
                                         marginRight: "10px",
