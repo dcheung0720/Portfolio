@@ -11,11 +11,11 @@ function Navigation() {
   return (
     <Navbar bg = "dark" variant='dark' expand="lg" className="bg-body-tertiary">
       <Container >
-        <Navbar.Brand href="/"><FontAwesomeIcon icon={faCode} /> David Cheung</Navbar.Brand>
+        <Navbar.Brand href="#/"><FontAwesomeIcon icon={faCode} /> David Cheung</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/"> Home</Nav.Link>
+            <Nav.Link href="#/"> Home</Nav.Link>
             <Nav.Link href="#/About">About</Nav.Link>
             <Nav.Link href="#link">Projects</Nav.Link>
           </Nav>
