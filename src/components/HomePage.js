@@ -5,6 +5,8 @@ import Typewriter from 'typewriter-effect';
 import "./HomePage.css"
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const HomePage = () =>{
 
@@ -50,10 +52,11 @@ const HomePage = () =>{
                                         marginRight: "10px",
                                         color: "white",
                                         boxShadow: "2px 2px 4px rgba(255, 255, 255, 0.2)",
-                                        border: "2px solid white"
+                                        border: "2px solid orange",
+                                        color: "orange"
                                     }}
-                                    variant="primary">
-                                    About Me
+                                    variant="outline-primary">
+                                    About Me <FontAwesomeIcon icon={faUser} />
                                 </Button>
                                 <a target = "_blank" href = "https://www.linkedin.com/in/david-cheung-473434226/">
                                     <img className = "social-icon"  src = "/Portfolio/img/Linkedin.png"></img>
