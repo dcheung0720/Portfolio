@@ -6,7 +6,7 @@ import "./HomePage.css"
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faFolder } from '@fortawesome/free-solid-svg-icons'
 
 const HomePage = () =>{
 
@@ -51,13 +51,24 @@ const HomePage = () =>{
                                     style={{
                                         borderRadius: "15px",
                                         marginRight: "10px",
-                                        color: "white",
                                         boxShadow: "2px 2px 4px rgba(255, 255, 255, 0.2)",
-                                        border: "2px solid orange",
-                                        color: "orange"
+                                        border: "2px solid yellow",
+                                        color: 'yellow',
                                     }}
                                     variant="outline-primary">
                                     About Me <FontAwesomeIcon icon={faUser} />
+                                </Button>
+                                <Button
+                                    href = "#/Projects"
+                                    style={{
+                                        borderRadius: "15px",
+                                        marginRight: "10px",
+                                        boxShadow: "2px 2px 4px rgba(255, 255, 255, 0.2)",
+                                        color: 'orange',
+                                        border: "2px solid orange",
+                                    }}
+                                    variant="outline-primary">
+                                    Projects <FontAwesomeIcon icon={faFolder} />
                                 </Button>
                                 <a target = "_blank" href = "https://www.linkedin.com/in/david-cheung-473434226/">
                                     <img className = "social-icon"  src = "/Portfolio/img/Linkedin.png"></img>

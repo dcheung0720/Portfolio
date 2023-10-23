@@ -17,7 +17,7 @@ function Navigation() {
           <Nav className="me-auto">
             <Nav.Link href="#/"> Home</Nav.Link>
             <Nav.Link href="#/About">About</Nav.Link>
-            <Nav.Link href="#link">Projects</Nav.Link>
+            <Nav.Link href="#/Projects">Projects</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
