@@ -5,6 +5,7 @@ import About from './components/About';
 import { Router, Route, Routes ,  browserHistory, IndexRoute } from 'react-router'
 import { HashRouter } from 'react-router-dom'
 import HomePage from './components/HomePage';
+import ContactMe from './components/ContactMe';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
               <Route path = "/" element = {<HomePage/>} ></Route>
               <Route path = "/About" element = {<About/>}></Route>
               <Route path = "/Projects" element = {<About/>}></Route>
+              <Route path = "/ContactMe" element = {<ContactMe/>}></Route>
           </Routes>
         </div>
       </HashRouter>

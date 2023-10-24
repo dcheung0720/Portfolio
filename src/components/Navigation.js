@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Navigation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode } from '@fortawesome/free-solid-svg-icons'
+import { faCode, faHouse, faPhone, faFolder, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 function Navigation() {
@@ -15,9 +15,10 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#/"> Home</Nav.Link>
-            <Nav.Link href="#/About">About</Nav.Link>
-            <Nav.Link href="#/Projects">Projects</Nav.Link>
+            <Nav.Link href="#/"> <FontAwesomeIcon icon={faHouse} /> Home</Nav.Link>
+            <Nav.Link href="#/About"><FontAwesomeIcon icon={faUser} /> About </Nav.Link>
+            <Nav.Link href="#/Projects"><FontAwesomeIcon icon={faFolder} /> Projects</Nav.Link>
+            <Nav.Link href="#/ContactMe"> <FontAwesomeIcon icon={faPhone} /> Contact </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

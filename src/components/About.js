@@ -19,7 +19,7 @@ const About = () =>{
             {resumeModal && <Resume handleModalView = {handleModalView}/>}
             <Row>
               <Col xs={12} md={6}>
-                <Row style = {{display: "flex", justifyContent: "center"}}><img src = "/Portfolio/img/pfp2.png" style = {{borderRadius: "50%"}}></img></Row>
+                <Row style = {{display: "flex", justifyContent: "center"}}><img src = "/Portfolio/img/pfp2.png" style = {{borderRadius: "10%"}}></img></Row>
                 <Row style = {{display: "flex", justifyContent: "center", marginTop: "20px"}}><Button variant="outline-primary" onClick={handleModalView}>Resume <FontAwesomeIcon icon={faFile} /></Button></Row>   
               </Col>
               <Col xs={12} md={6}>
@@ -34,7 +34,7 @@ const About = () =>{
                     <p>In my free time, I also have a passion for teaching and work as a part-time tutor.</p>
                 </Row>
                 <Row> 
-                    <Button variant="outline-success">Contact Me <FontAwesomeIcon icon={faPhone} /></Button>
+                    <Button variant="outline-success" href='#/ContactMe'>Contact Me <FontAwesomeIcon icon={faPhone} /></Button>
                 </Row>
               </Col>
             </Row>
