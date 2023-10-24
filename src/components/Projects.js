@@ -82,7 +82,7 @@ const Projects = () =>{
                     <Card md = {6} xs = {12} lg = {4} style={{ width: "40%", border: "3px solid white", backgroundColor: "black", margin: "10px" }}>
                         <Card.Title style = {{fontSize: "30px"}}>{item["Name"]}</Card.Title>
                         <Card.Title> 
-                            <Card.Img   src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "50%"}} />
+                            <Card.Img   src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />
                         </Card.Title>
                         <Card.Body style = {{textAlign: "left"}}>
                             {item["LinkToSite"] !== "" && <div>
