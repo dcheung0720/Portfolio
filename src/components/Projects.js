@@ -75,11 +75,11 @@ const Projects = () =>{
     }
 
 
-    return (<Container style = {{position: "absolute", top: 100, left: 100, right: 100}}>
+    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)"}}>
         <Row>
             <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap"}}>{Object.values(projects).map(item => {
                 return(
-                    <Card md = {6} xs = {12} lg = {4} style={{ width: "40%", border: "3px solid white", backgroundColor: "black", margin: "10px" }}>
+                    <Card md = {6} xs = {12} lg = {4} style={{ maxWidth: "400px", border: "3px solid white", backgroundColor: "black", margin: "10px" }}>
                         <Card.Title style = {{fontSize: "30px"}}>{item["Name"]}</Card.Title>
                         <Card.Title> 
                             <Card.Img   src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />
