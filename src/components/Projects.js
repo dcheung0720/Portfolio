@@ -75,14 +75,14 @@ const Projects = () =>{
     }
 
 
-    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)"}}>
+    return (<Container  style = {{position: "absolute", top: 150, left: "50%", transform: "translate(-50%, 0)", width: "100%"}}>
         <Row>
             <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap"}}>{Object.values(projects).map(item => {
                 return(
-                    <Card md = {6} xs = {12} lg = {4} style={{ maxWidth: "400px", border: "3px solid white", backgroundColor: "black", margin: "10px" }}>
-                        <Card.Title style = {{fontSize: "30px"}}>{item["Name"]}</Card.Title>
+                    <Card md = {6} xs = {12} lg = {4} style={{ minWidth: "450px", maxWidth: "450px", border: "3px solid white", backgroundColor: "black", margin: "10px" }}>
+                        <Card.Title md = {6} xs = {12} lg = {4}  style = {{fontSize: "30px"}}>{item["Name"]}</Card.Title>
                         <Card.Title> 
-                            <Card.Img   src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />
+                            {item["Image"] !== "" && <Card.Img   src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />}
                         </Card.Title>
                         <Card.Body style = {{textAlign: "left"}}>
                             {item["LinkToSite"] !== "" && <div>
