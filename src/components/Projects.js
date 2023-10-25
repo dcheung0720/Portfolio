@@ -3,10 +3,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useState } from 'react';
 
 const Projects = () =>{
 
-    const categories = [];
+    const categories = ["ReactJS", "Machine Learning", "Deep Learning",
+                        "Data Visualization", "HTML5", "CSS", "Boostrap", 
+                        "Education", "Law", "Unity", "C#"];
 
     const projects  = {
         "TurboMath": {
@@ -16,7 +19,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/TurboMath",
             "LinkToSite": "https://turbomath-a0c94.web.app/",
-            "Categories": ["Data", "Visualization", "React", "HTML5", "Javascript", "CSS", "Boostrap", "Education"],
+            "Categories": ["Data Visualization", "ReactJS", "HTML5", "Javascript", "CSS", "Boostrap", "Education"],
             "Descriptions": ["Turbo Math is a responsive solo/multiplayer website game in React JS with Firebase Real-Time Database, helping students improve mental arithmetic and track their progress. It also has personalized, real-time data-driven visualizations using D3 JS to help students monitor and assess their learning progress."] 
         },
         "HateSpeechClassifier":{
@@ -37,7 +40,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/LCBH-Help-Desk",
             "LinkToSite": "",
-            "Categories": ["Machine Learning", "React", "Javascript", "HTML5", "CSS", "Boostrap", "Law"],
+            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law"],
             "Descriptions": ["Developed a complementary web application using ReactJS with MongoDB in the Help Scout platform to decrease turnaround response times for housing inquiries.",
                             "Built a backend API in Flask that fetches data from Help Scout and compute classification predictions.",
                             "Applied machine learning (KNN) classification to automatically classify the type of the inquiry and select a canned response that a paralegal can use to quickly reply to a tenant’s inquiry." ]
@@ -59,7 +62,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/397-f22/iSeekNU",
             "LinkToSite": "",
-            "Categories": ["React", "HTML5", "CSS"],
+            "Categories": ["ReactJS", "HTML5", "CSS"],
             "Descriptions": ["A large scale hide and seek game where the seeker has access to approximate locations of hiders."]
         },
         "Holler":{
@@ -69,32 +72,56 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/394-s22/Holler",
             "LinkToSite": "",
-            "Categories": ["React", "HTML5", "CSS"],
+            "Categories": ["ReactJS", "HTML5", "CSS"],
             "Descriptions": ["A PDF parser for legal documents such as contracts such that users can easily see the important information, add dates to calendar, and make payments."]
         }
     }
 
+    const [selected, setSelected] = useState([]);
+
+    const handleFilter = (e) =>{
+
+        const targetValue = e.target.innerHTML;
+        if(selected.includes(targetValue)){
+            setSelected((prev) => prev.filter(item => item !== targetValue))
+        }
+        else{
+            setSelected((prev) => [...prev, targetValue ])
+        }
+    };
 
     return (<Container  style = {{position: "absolute", top: 150, left: "50%", transform: "translate(-50%, 0)", width: "100%"}}>
+        <Row style = {{display: "flex", justifyContent: "center", alignItems:"center"}}>
+            Filters: {categories.map(cat => <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat)? 0.5: 1}} variant="primary">{cat}</Button>)}
+        </Row>
         <Row>
-            <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap"}}>{Object.values(projects).map(item => {
+            <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap"}}>{
+            Object.values(projects).filter(
+                item => item["Categories"].some(
+                item  => {
+                    if(selected.length != 0){
+                        return selected.includes(item)
+                    }
+                    return true;
+                }))
+                .map(item => {
                 return(
-                    <Card md = {6} xs = {12} lg = {4} style={{ minWidth: "450px", maxWidth: "450px", border: "3px solid white", backgroundColor: "black", margin: "10px" }}>
-                        <Card.Title md = {6} xs = {12} lg = {4}  style = {{fontSize: "30px"}}>{item["Name"]}</Card.Title>
+                    <Card md = {6} xs = {12} lg = {4} style={{maxWidth: "450px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px" }}>
+                        <h1>{item["Name"]}</h1>
                         <Card.Title> 
-                            {item["Image"] !== "" && <Card.Img   src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />}
+                            {item["Image"] !== "" && <Card.Img  src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />}
                         </Card.Title>
                         <Card.Body style = {{textAlign: "left"}}>
                             {item["LinkToSite"] !== "" && <div>
-                                <h3>Link to site</h3>
+                                <h4>Link to site</h4>
                                 <a target='_blank' href = {item["LinkToSite"]}>{item["LinkToSite"]}</a>
                             </div>}
                             {item["GitRepository"] !== "" && <div>
-                                <h3>Git Repository</h3>
+                                <h4>Git Repository</h4>
                                 <a target='_blank' href = {item["GitRepository"]}>{item["GitRepository"]}</a>
                             </div>}
                             <div>
-                                <h3>Description</h3>
+                                <h4>Description</h4>
                                 <ul>
                                     {item.Descriptions.map(x => <li style = {{fontSize: "15px"}}>
                                         {x}
