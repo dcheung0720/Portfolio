@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Resume from './Resume';
+import File from './File';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faFile } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
@@ -16,7 +16,7 @@ const About = () =>{
         }
 
         return(<Container>
-            {resumeModal && <Resume handleModalView = {handleModalView}/>}
+            {resumeModal && <File handleModalView = {handleModalView} file = {"/Portfolio/files/resume.pdf"} />}
             <Row>
               <Col xs={12} md={6}>
                 <Row style = {{display: "flex", justifyContent: "center"}}><img src = "/Portfolio/img/pfp2.png" style = {{borderRadius: "10%"}}></img></Row>

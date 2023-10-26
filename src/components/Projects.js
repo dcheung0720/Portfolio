@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
+import File from './File';
 
 const Projects = () =>{
 
@@ -79,6 +80,12 @@ const Projects = () =>{
 
     const [selected, setSelected] = useState([]);
 
+    const [fileOpen, setFileOpen] = useState(false);
+
+    const handleFileOpen = () =>{
+        setFileOpen((prev) => !prev);
+    }
+
     const handleFilter = (e) =>{
 
         const targetValue = e.target.innerHTML;
@@ -92,7 +99,7 @@ const Projects = () =>{
 
     return (<Container  style = {{position: "absolute", top: 150, left: "50%", transform: "translate(-50%, 0)", width: "100%"}}>
         <Row style = {{display: "flex", justifyContent: "center", alignItems:"center"}}>
-            Filters: {categories.map(cat => <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat)? 0.5: 1}} variant="primary">{cat}</Button>)}
+            <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> {categories.map(cat => <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat)? 0.5: 1}} variant="primary">{cat}</Button>)}
         </Row>
         <Row>
             <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap"}}>{
@@ -107,7 +114,7 @@ const Projects = () =>{
                 .map(item => {
                 return(
                     <Card md = {6} xs = {12} lg = {4} style={{maxWidth: "450px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px" }}>
-                        <h1>{item["Name"]}</h1>
+                        <h1 style = {{marginTop: "10px"}}>{item["Name"]}</h1>
                         <Card.Title> 
                             {item["Image"] !== "" && <Card.Img  src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />}
                         </Card.Title>
