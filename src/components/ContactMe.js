@@ -7,7 +7,7 @@ import { faPhone, faShareNodes, faEnvelope} from '@fortawesome/free-solid-svg-ic
 
 const ContactMe = () =>{
 
-    return(  <Container>
+    return(  <Container style = {{}}>
         <Row>
           <Col>
             <Row style = {{display: "flex", justifyContent: "center"}}>
