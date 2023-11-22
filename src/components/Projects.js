@@ -5,11 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import File from './File';
+import './Projects.css'
 
 const Projects = () =>{
 
-    const categories = ["ReactJS", "Machine Learning", "Deep Learning",
-                        "Data Visualization", "HTML5", "CSS", "Boostrap", 
+    const categories = ["ReactJS", "React Native", "Machine Learning", "Deep Learning", "Computer Vision",
+                        "Data Visualization", "HTML5", "CSS", "Boostrap", "Python3",
                         "Education", "Law", "Unity", "C#"];
 
     const projects  = {
@@ -30,7 +31,7 @@ const Projects = () =>{
             "File": "/Portfolio/files/ClassifierReport.pdf",
             "GitRepository": "https://github.com/cs449w23/project-stop-sign",
             "LinkToSite": "",
-            "Categories": ["Machine Learning", "Deep Learning"],
+            "Categories": ["Machine Learning", "Deep Learning", "Python3"],
             "Descriptions": ["Used Pytorch to train several deep learning models, including Vanilla RNNs, LSTMs, GRUs, and Transformers, on Twitter tweets to classify whether a tweet is hateful, offensive, or neither.",
                             "Tuned the models\' parameters, such as Embeddings, Epochs, Dropout, Weight Decays, Weight Constraints, to reduce overfitting and compared the performance of the models using cross entropy and validation accuracy."]
         },
@@ -41,7 +42,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/LCBH-Help-Desk",
             "LinkToSite": "",
-            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law"],
+            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law", "Python3"],
             "Descriptions": ["Developed a complementary web application using ReactJS with MongoDB in the Help Scout platform to decrease turnaround response times for housing inquiries.",
                             "Built a backend API in Flask that fetches data from Help Scout and compute classification predictions.",
                             "Applied machine learning (KNN) classification to automatically classify the type of the inquiry and select a canned response that a paralegal can use to quickly reply to a tenant’s inquiry." ]
@@ -55,6 +56,16 @@ const Projects = () =>{
             "LinkToSite": "",
             "Categories": ["Unity", "C#"],
             "Descriptions": ["A 3D FPS tower defense game using Unity."]
+        },
+        "Gesic":{
+            "Name": "Gesic",
+            "Date": "11-25-2023",
+            "Image": "",
+            "File": "",
+            "GitRepository": "https://github.com/dcheung0720/EE332-Gesic",
+            "LinkToSite": "",
+            "Categories": ["Computer Vision", "Python3"],
+            "Descriptions": ["A Python3 program that allows users to create music with gestures either by the finger collisions or gesture recognition."]
         },
         "ISeekNu":{
             "Name": "ISeekNu",
@@ -98,8 +109,14 @@ const Projects = () =>{
     };
 
     return (<Container  style = {{position: "absolute", top: 150, left: "50%", transform: "translate(-50%, 0)", width: "100%"}}>
-        <Row style = {{display: "flex", justifyContent: "center", alignItems:"center"}}>
-            <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> {categories.map(cat => <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat)? 0.5: 1}} variant="primary">{cat}</Button>)}
+        <Row style = {{display: "flex", justifyContent: "left", alignItems:"center"}}>
+            <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> 
+            {
+                categories.map(cat => 
+                <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat)? 0.5: 1}} variant="primary">
+                    {cat}
+                </Button>)
+            }
         </Row>
         <Row>
             <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap"}}>{
@@ -113,7 +130,7 @@ const Projects = () =>{
                 }))
                 .map(item => {
                 return(
-                    <Card md = {6} xs = {12} lg = {4} style={{maxWidth: "450px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px" }}>
+                    <Card md = {6} xs = {12} lg = {4} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll" }}>
                         <h1 style = {{marginTop: "10px"}}>{item["Name"]}</h1>
                         <Card.Title> 
                             {item["Image"] !== "" && <Card.Img  src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />}
