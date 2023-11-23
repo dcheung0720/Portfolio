@@ -9,11 +9,22 @@ import './Projects.css'
 
 const Projects = () =>{
 
-    const categories = ["ReactJS", "React Native", "Machine Learning", "Deep Learning", "Computer Vision",
-                        "Data Visualization", "HTML5", "CSS", "Boostrap", "Python3",
-                        "Education", "Law", "Unity", "C#"];
+    const categories = ["ReactJS", "React Native", "Unity", "Javascript", "Python3", "SQL", "C#",
+                        "HTML5", "CSS", "Boostrap", "Flask",
+                        "Machine Learning", "Deep Learning", "Computer Vision", "Data Visualization",
+                        "Education", "Law"];
 
     const projects  = {
+        "MotivCookies": {
+            "Name": "MotivCookies",
+            "Date": "10-24-2023",
+            "Image": "",
+            "File": "",
+            "GitRepository": "https://github.com/dcheung0720/MotivCookies",
+            "LinkToSite": "",
+            "Categories": ["Data Visualization", "React Native", "Javascript", "SQL", "Flask"],
+            "Descriptions": ["MotivCookies is a mobile app created with React Native that generates a motivational quote using Tensorflow's Universal Senetence Encoder and suggests productive activities to the user"] 
+        },
         "TurboMath": {
             "Name": "Turbo Math",
             "Date": "06-24-2023",
@@ -42,7 +53,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/LCBH-Help-Desk",
             "LinkToSite": "",
-            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law", "Python3"],
+            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law", "Python3", "Flask"],
             "Descriptions": ["Developed a complementary web application using ReactJS with MongoDB in the Help Scout platform to decrease turnaround response times for housing inquiries.",
                             "Built a backend API in Flask that fetches data from Help Scout and compute classification predictions.",
                             "Applied machine learning (KNN) classification to automatically classify the type of the inquiry and select a canned response that a paralegal can use to quickly reply to a tenant’s inquiry." ]
@@ -74,7 +85,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/397-f22/iSeekNU",
             "LinkToSite": "",
-            "Categories": ["ReactJS", "HTML5", "CSS"],
+            "Categories": ["ReactJS", "Javascript", "HTML5", "CSS"],
             "Descriptions": ["A large scale hide and seek game where the seeker has access to approximate locations of hiders."]
         },
         "Holler":{
@@ -84,18 +95,12 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/394-s22/Holler",
             "LinkToSite": "",
-            "Categories": ["ReactJS", "HTML5", "CSS"],
+            "Categories": ["ReactJS", "Javascript", "HTML5", "CSS"],
             "Descriptions": ["A PDF parser for legal documents such as contracts such that users can easily see the important information, add dates to calendar, and make payments."]
         }
     }
 
     const [selected, setSelected] = useState([]);
-
-    const [fileOpen, setFileOpen] = useState(false);
-
-    const handleFileOpen = () =>{
-        setFileOpen((prev) => !prev);
-    }
 
     const handleFilter = (e) =>{
 
@@ -119,7 +124,7 @@ const Projects = () =>{
             }
         </Row>
         <Row>
-            <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap"}}>{
+            <Col style = {{display: "flex", justifyContent:"left", flexWrap: "wrap"}}>{
             Object.values(projects).filter(
                 item => item["Categories"].some(
                 item  => {
