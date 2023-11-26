@@ -17,6 +17,7 @@ const Projects = () =>{
     const projects  = {
         "MotivCookies": {
             "Name": "MotivCookies",
+            "Icon": "",
             "Date": "10-24-2023",
             "Image": "",
             "File": "",
@@ -27,6 +28,7 @@ const Projects = () =>{
         },
         "TurboMath": {
             "Name": "Turbo Math",
+            "Icon": "/Portfolio/img/Turbo.png",
             "Date": "06-24-2023",
             "Image": "/Portfolio/img/TurboMath.png",
             "File": "",
@@ -37,6 +39,7 @@ const Projects = () =>{
         },
         "HateSpeechClassifier":{
             "Name": "Hate Speech Trinary Classification",
+            "Icon": "",
             "Date": "03-03-2023",
             "Image": "",
             "File": "/Portfolio/files/ClassifierReport.pdf",
@@ -48,6 +51,7 @@ const Projects = () =>{
         },
         "ResponseGenie":{
             "Name": "Response Genie",
+            "Icon": "",
             "Date": "01-03-2023",
             "Image": "/Portfolio/img/ResponseGenie.png",
             "File": "",
@@ -60,6 +64,7 @@ const Projects = () =>{
         },
         "LastStand":{
             "Name": "Last Stand",
+            "Icon": "",
             "Date": "01-03-2023",
             "Image": "",
             "File": "",
@@ -70,6 +75,7 @@ const Projects = () =>{
         },
         "Gesic":{
             "Name": "Gesic",
+            "Icon": "",
             "Date": "11-25-2023",
             "Image": "",
             "File": "",
@@ -80,6 +86,7 @@ const Projects = () =>{
         },
         "ISeekNu":{
             "Name": "ISeekNu",
+            "Icon": "",
             "Date": "11-01-2022",
             "Image": "",
             "File": "",
@@ -90,6 +97,7 @@ const Projects = () =>{
         },
         "Holler":{
             "Name": "Holler",
+            "Icon": "",
             "Date": "03-01-2022",
             "Image": "",
             "File": "",
@@ -113,8 +121,8 @@ const Projects = () =>{
         }
     };
 
-    return (<Container  style = {{position: "absolute", top: 150, left: "50%", transform: "translate(-50%, 0)", width: "100%"}}>
-        <Row style = {{display: "flex", justifyContent: "left", alignItems:"center"}}>
+    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)", width: "100%"}}>
+        <Row style = {{display: "flex", justifyContent: "left", alignItems:"center", margin: 10}}>
             <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> 
             {
                 categories.map(cat => 
@@ -124,7 +132,7 @@ const Projects = () =>{
             }
         </Row>
         <Row>
-            <Col style = {{display: "flex", justifyContent:"left", flexWrap: "wrap"}}>{
+            <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap", width: "100%"}}>{
             Object.values(projects).filter(
                 item => item["Categories"].some(
                 item  => {
@@ -135,8 +143,11 @@ const Projects = () =>{
                 }))
                 .map(item => {
                 return(
-                    <Card md = {6} xs = {12} lg = {4} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll" }}>
-                        <h1 style = {{marginTop: "10px"}}>{item["Name"]}</h1>
+                    <Card md = {12} xs = {12} lg = {12} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll" }}>
+                        <h1 style = {{marginTop: "10px", display: "flex", justifyContent: "center"}}>
+                            {item["Name"]} 
+                            {item["Icon"] !== "" && <img src = {item["Icon"]} style = {{borderRadius: "50%", width: "50px", height: "50px"}}></img>}
+                        </h1>
                         <Card.Title> 
                             {item["Image"] !== "" && <Card.Img  src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />}
                         </Card.Title>
