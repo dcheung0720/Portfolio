@@ -7,29 +7,27 @@ import { useState } from 'react';
 import File from './File';
 import './Projects.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faReact } from '@fortawesome/free-brands-svg-icons';
-
-
+import { faDatabase, faList, faUpRightFromSquare, faCode, faFlask, faGear, faGears, faEyeLowVision, faChartSimple, faSchool, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap } from '@fortawesome/free-brands-svg-icons';
 
 const Projects = () =>{
 
     const categories = [{"name": "ReactJS", "icon": faReact},
                         {"name": "React Native", "icon": faReact}, 
-                        {"name": "Unity", "icon": faReact}, 
-                        {"name": "Javascript", "icon": faReact}, 
-                        {"name": "SQL", "icon": faReact}, 
-                        {"name": "C#", "icon": faReact}, 
-                        {"name": "HTML5", "icon": faReact}, 
-                        {"name": "CSS", "icon": faReact}, 
-                        {"name": "Boostrap", "icon": faReact}, 
-                        {"name": "Flask", "icon": faReact}, 
-                        {"name": "Machine Learning", "icon": faReact}, 
-                        {"name": "Deep Learning", "icon": faReact}, 
-                        {"name": "Computer Vision", "icon": faReact}, 
-                        {"name": "Data Visualization", "icon": faReact}, 
-                        {"name": "Education", "icon": faReact}, 
-                        {"name": "Law", "icon": faReact}, 
+                        {"name": "Unity", "icon": faUnity}, 
+                        {"name": "Javascript", "icon": faJs}, 
+                        {"name": "SQL", "icon": faDatabase}, 
+                        {"name": "C#", "icon": faCode}, 
+                        {"name": "HTML5", "icon":  faHtml5}, 
+                        {"name": "CSS", "icon": faCss3}, 
+                        {"name": "Boostrap", "icon": faBootstrap}, 
+                        {"name": "Flask", "icon": faFlask}, 
+                        {"name": "Machine Learning", "icon": faGear}, 
+                        {"name": "Deep Learning", "icon": faGears}, 
+                        {"name": "Computer Vision", "icon": faEyeLowVision}, 
+                        {"name": "Data Visualization", "icon": faChartSimple}, 
+                        {"name": "Education", "icon": faSchool}, 
+                        {"name": "Law", "icon": faScaleBalanced}, 
                         ]
 
     const projects  = {
@@ -141,6 +139,7 @@ const Projects = () =>{
 
     const handleFilter = (e) =>{
         const regex = /(.*?)(?=<svg)/;
+    
         const match = e.target.innerHTML.match(regex);
         if(selected.includes(match[0].trim())){
             setSelected((prev) => prev.filter(item => item !== match[0].trim()))
