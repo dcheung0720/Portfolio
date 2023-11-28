@@ -6,18 +6,36 @@ import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import File from './File';
 import './Projects.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faReact } from '@fortawesome/free-brands-svg-icons';
+
+
 
 const Projects = () =>{
 
-    const categories = ["ReactJS", "React Native", "Unity", "Javascript", "Python3", "SQL", "C#",
-                        "HTML5", "CSS", "Boostrap", "Flask",
-                        "Machine Learning", "Deep Learning", "Computer Vision", "Data Visualization",
-                        "Education", "Law"];
+    const categories = [{"name": "ReactJS", "icon": faReact},
+                        {"name": "React Native", "icon": faReact}, 
+                        {"name": "Unity", "icon": faReact}, 
+                        {"name": "Javascript", "icon": faReact}, 
+                        {"name": "SQL", "icon": faReact}, 
+                        {"name": "C#", "icon": faReact}, 
+                        {"name": "HTML5", "icon": faReact}, 
+                        {"name": "CSS", "icon": faReact}, 
+                        {"name": "Boostrap", "icon": faReact}, 
+                        {"name": "Flask", "icon": faReact}, 
+                        {"name": "Machine Learning", "icon": faReact}, 
+                        {"name": "Deep Learning", "icon": faReact}, 
+                        {"name": "Computer Vision", "icon": faReact}, 
+                        {"name": "Data Visualization", "icon": faReact}, 
+                        {"name": "Education", "icon": faReact}, 
+                        {"name": "Law", "icon": faReact}, 
+                        ]
 
     const projects  = {
         "MotivCookies": {
             "Name": "MotivCookies",
-            "Icon": "",
+            "Icon": "/Portfolio/img/cookies.png",
             "Date": "10-24-2023",
             "Image": "",
             "File": "",
@@ -39,7 +57,7 @@ const Projects = () =>{
         },
         "HateSpeechClassifier":{
             "Name": "Hate Speech Trinary Classification",
-            "Icon": "",
+            "Icon": "/Portfolio/img/twitter.png",
             "Date": "03-03-2023",
             "Image": "",
             "File": "/Portfolio/files/ClassifierReport.pdf",
@@ -51,7 +69,7 @@ const Projects = () =>{
         },
         "ResponseGenie":{
             "Name": "Response Genie",
-            "Icon": "",
+            "Icon": "/Portfolio/img/genie.png",
             "Date": "01-03-2023",
             "Image": "/Portfolio/img/ResponseGenie.png",
             "File": "",
@@ -75,7 +93,7 @@ const Projects = () =>{
         },
         "Gesic":{
             "Name": "Gesic",
-            "Icon": "",
+            "Icon": "/Portfolio/img/music.png",
             "Date": "11-25-2023",
             "Image": "",
             "File": "",
@@ -95,6 +113,17 @@ const Projects = () =>{
             "Categories": ["ReactJS", "Javascript", "HTML5", "CSS"],
             "Descriptions": ["A large scale hide and seek game where the seeker has access to approximate locations of hiders."]
         },
+        "StayHydrated":{
+            "Name": "StayHydrated",
+            "Icon": "",
+            "Date": "10-01-2022",
+            "Image": "",
+            "File": "",
+            "GitRepository": "https://github.com/397-f22/iSeekNU",
+            "LinkToSite": "http://www.responsinator.com/?url=https%3A%2F%2Fstayhydrated-41d70.firebaseapp.com%2F",
+            "Categories": ["ReactJS", "Javascript", "HTML5", "CSS"],
+            "Descriptions": ["A react app with Firebase backend support created by my team and I to help people keep track of their water hydration intake."]
+        },
         "Holler":{
             "Name": "Holler",
             "Icon": "",
@@ -111,13 +140,13 @@ const Projects = () =>{
     const [selected, setSelected] = useState([]);
 
     const handleFilter = (e) =>{
-
-        const targetValue = e.target.innerHTML;
-        if(selected.includes(targetValue)){
-            setSelected((prev) => prev.filter(item => item !== targetValue))
+        const regex = /(.*?)(?=<svg)/;
+        const match = e.target.innerHTML.match(regex);
+        if(selected.includes(match[0].trim())){
+            setSelected((prev) => prev.filter(item => item !== match[0].trim()))
         }
         else{
-            setSelected((prev) => [...prev, targetValue ])
+            setSelected((prev) => [...prev, match[0].trim()])
         }
     };
 
@@ -126,8 +155,8 @@ const Projects = () =>{
             <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> 
             {
                 categories.map(cat => 
-                <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat)? 0.5: 1}} variant="primary">
-                    {cat}
+                <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat["name"])? 0.5: 1}} variant="primary">
+                    {cat["name"]} <FontAwesomeIcon icon ={cat["icon"]}></FontAwesomeIcon>
                 </Button>)
             }
         </Row>
@@ -153,15 +182,15 @@ const Projects = () =>{
                         </Card.Title>
                         <Card.Body style = {{textAlign: "left"}}>
                             {item["LinkToSite"] !== "" && <div>
-                                <h4>Link to site</h4>
-                                <a target='_blank' href = {item["LinkToSite"]}>{item["LinkToSite"]}</a>
+                                <h4>Link to site <FontAwesomeIcon icon={faUpRightFromSquare} /></h4>
+                                <a target='_blank' href = {item["LinkToSite"]}>{item["Name"]} <FontAwesomeIcon icon={faUpRightFromSquare} /></a>
                             </div>}
                             {item["GitRepository"] !== "" && <div>
-                                <h4>Git Repository</h4>
+                                <h4>Git Repository <FontAwesomeIcon icon={faGithub} /></h4>
                                 <a target='_blank' href = {item["GitRepository"]}>{item["GitRepository"]}</a>
                             </div>}
                             <div>
-                                <h4>Description</h4>
+                                <h4>Description <FontAwesomeIcon icon={faList} /></h4>
                                 <ul>
                                     {item.Descriptions.map(x => <li style = {{fontSize: "15px"}}>
                                         {x}
