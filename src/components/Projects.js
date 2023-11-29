@@ -47,7 +47,7 @@ const Projects = () =>{
             "Name": "Turbo Math",
             "Icon": "/Portfolio/img/Turbo.png",
             "Date": "06-24-2023",
-            "Images": ["/Portfolio/img/TurboMath.png",],
+            "Images": ["/Portfolio/img/TurboMath.png", "/Portfolio/img/TurboMath6.png", "/Portfolio/img/TurboMath3.png", "/Portfolio/img/TurboMath2.png","/Portfolio/img/TurboMath4.png","/Portfolio/img/TurboMath5.png"],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/TurboMath",
             "LinkToSite": "https://turbomath-a0c94.web.app/",
@@ -55,10 +55,10 @@ const Projects = () =>{
             "Descriptions": ["Turbo Math is a responsive solo/multiplayer website game in React JS with Firebase Real-Time Database, helping students improve mental arithmetic and track their progress. It also has personalized, real-time data-driven visualizations using D3 JS to help students monitor and assess their learning progress."] 
         },
         "HateSpeechClassifier":{
-            "Name": "Hate Speech Trinary Classification",
+            "Name": "Hate Speech Classifier",
             "Icon": "/Portfolio/img/twitter.png",
             "Date": "03-03-2023",
-            "Images": [],
+            "Images": ["/Portfolio/img/classification1.png","/Portfolio/img/classification2.png","/Portfolio/img/classification3.png","/Portfolio/img/classification4.png",],
             "File": "/Portfolio/files/ClassifierReport.pdf",
             "GitRepository": "https://github.com/cs449w23/project-stop-sign",
             "LinkToSite": "",
@@ -94,7 +94,7 @@ const Projects = () =>{
             "Name": "Gesic",
             "Icon": "/Portfolio/img/music.png",
             "Date": "11-25-2023",
-            "Images": "",
+            "Images": ["/Portfolio/img/Gesic.png", "/Portfolio/img/Gesic2.png", "/Portfolio/img/Gesic3.png"],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/EE332-Gesic",
             "LinkToSite": "",
@@ -178,7 +178,7 @@ const Projects = () =>{
                         </h1>
                         <Card.Title>
                             {item["Images"].length === 1? 
-                                <Card.Img  src= {item["Images"][0]}  style = {{padding: "10px", height: "auto", width: "80%"}} /> 
+                                <Card.Img  src= {item["Images"][0]}  style = {{padding: "10px", height: "auto", width: "100%"}} /> 
                             : item["Images"].length > 1?  <ImageCarousel images = {item["Images"]}></ImageCarousel>: <></>} 
                         </Card.Title>
                         <Card.Body style = {{textAlign: "left"}}>
