@@ -114,9 +114,9 @@ const Projects = () =>{
         },
         "StayHydrated":{
             "Name": "StayHydrated",
-            "Icon": "",
+            "Icon": "/Portfolio/img/hydrated.png",
             "Date": "10-01-2022",
-            "Images": [],
+            "Images": ["/Portfolio/img/hydration.png",],
             "File": "",
             "GitRepository": "https://github.com/397-f22/iSeekNU",
             "LinkToSite": "http://www.responsinator.com/?url=https%3A%2F%2Fstayhydrated-41d70.firebaseapp.com%2F",
