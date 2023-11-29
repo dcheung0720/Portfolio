@@ -9,6 +9,7 @@ import './Projects.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faList, faUpRightFromSquare, faCode, faFlask, faGear, faGears, faEyeLowVision, faChartSimple, faSchool, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap } from '@fortawesome/free-brands-svg-icons';
+import ImageCarousel from './ImageCarousel';
 
 const Projects = () =>{
 
@@ -35,7 +36,7 @@ const Projects = () =>{
             "Name": "MotivCookies",
             "Icon": "/Portfolio/img/cookies.png",
             "Date": "10-24-2023",
-            "Image": "",
+            "Images": [],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/MotivCookies",
             "LinkToSite": "",
@@ -46,7 +47,7 @@ const Projects = () =>{
             "Name": "Turbo Math",
             "Icon": "/Portfolio/img/Turbo.png",
             "Date": "06-24-2023",
-            "Image": "/Portfolio/img/TurboMath.png",
+            "Images": ["/Portfolio/img/TurboMath.png",],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/TurboMath",
             "LinkToSite": "https://turbomath-a0c94.web.app/",
@@ -57,7 +58,7 @@ const Projects = () =>{
             "Name": "Hate Speech Trinary Classification",
             "Icon": "/Portfolio/img/twitter.png",
             "Date": "03-03-2023",
-            "Image": "",
+            "Images": [],
             "File": "/Portfolio/files/ClassifierReport.pdf",
             "GitRepository": "https://github.com/cs449w23/project-stop-sign",
             "LinkToSite": "",
@@ -69,7 +70,7 @@ const Projects = () =>{
             "Name": "Response Genie",
             "Icon": "/Portfolio/img/genie.png",
             "Date": "01-03-2023",
-            "Image": "/Portfolio/img/ResponseGenie.png",
+            "Images": ["/Portfolio/img/ResponseGenie.png"],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/LCBH-Help-Desk",
             "LinkToSite": "",
@@ -82,7 +83,7 @@ const Projects = () =>{
             "Name": "Last Stand",
             "Icon": "",
             "Date": "01-03-2023",
-            "Image": "",
+            "Images": ["/Portfolio/img/last_stand.png", "/Portfolio/img/last_stand2.png"],
             "File": "",
             "GitRepository": "https://github.com/sell488/Last-Stand",
             "LinkToSite": "",
@@ -93,7 +94,7 @@ const Projects = () =>{
             "Name": "Gesic",
             "Icon": "/Portfolio/img/music.png",
             "Date": "11-25-2023",
-            "Image": "",
+            "Images": "",
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/EE332-Gesic",
             "LinkToSite": "",
@@ -104,7 +105,7 @@ const Projects = () =>{
             "Name": "ISeekNu",
             "Icon": "",
             "Date": "11-01-2022",
-            "Image": "",
+            "Images": [],
             "File": "",
             "GitRepository": "https://github.com/397-f22/iSeekNU",
             "LinkToSite": "",
@@ -115,7 +116,7 @@ const Projects = () =>{
             "Name": "StayHydrated",
             "Icon": "",
             "Date": "10-01-2022",
-            "Image": "",
+            "Images": [],
             "File": "",
             "GitRepository": "https://github.com/397-f22/iSeekNU",
             "LinkToSite": "http://www.responsinator.com/?url=https%3A%2F%2Fstayhydrated-41d70.firebaseapp.com%2F",
@@ -126,7 +127,7 @@ const Projects = () =>{
             "Name": "Holler",
             "Icon": "",
             "Date": "03-01-2022",
-            "Image": "",
+            "Images": [],
             "File": "",
             "GitRepository": "https://github.com/394-s22/Holler",
             "LinkToSite": "",
@@ -139,8 +140,7 @@ const Projects = () =>{
 
     const handleFilter = (e) =>{
         const regex = /(.*?)(?=<svg)/;
-    
-        const match = e.target.innerHTML.match(regex);
+        const match = e.currentTarget.innerHTML.match(regex);
         if(selected.includes(match[0].trim())){
             setSelected((prev) => prev.filter(item => item !== match[0].trim()))
         }
@@ -154,8 +154,8 @@ const Projects = () =>{
             <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> 
             {
                 categories.map(cat => 
-                <Button onClick={(e) => handleFilter(e)} style = {{margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat["name"])? 0.5: 1}} variant="primary">
-                    {cat["name"]} <FontAwesomeIcon icon ={cat["icon"]}></FontAwesomeIcon>
+                <Button onClick={(e) => handleFilter(e)} style = {{ margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat["name"])? 0.5: 1}} variant="primary">             
+                        {cat["name"]} <FontAwesomeIcon  icon={cat["icon"]} />
                 </Button>)
             }
         </Row>
@@ -176,8 +176,10 @@ const Projects = () =>{
                             {item["Name"]} 
                             {item["Icon"] !== "" && <img src = {item["Icon"]} style = {{borderRadius: "50%", width: "50px", height: "50px"}}></img>}
                         </h1>
-                        <Card.Title> 
-                            {item["Image"] !== "" && <Card.Img  src= {item["Image"]}  style = {{padding: "10px", height: "auto", width: "80%"}} />}
+                        <Card.Title>
+                            {item["Images"].length === 1? 
+                                <Card.Img  src= {item["Images"][0]}  style = {{padding: "10px", height: "auto", width: "80%"}} /> 
+                            : item["Images"].length > 1?  <ImageCarousel images = {item["Images"]}></ImageCarousel>: <></>} 
                         </Card.Title>
                         <Card.Body style = {{textAlign: "left"}}>
                             {item["LinkToSite"] !== "" && <div>
