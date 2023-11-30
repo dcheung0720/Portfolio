@@ -54,6 +54,18 @@ const Projects = () =>{
             "Categories": ["Data Visualization", "ReactJS", "HTML5", "Javascript", "CSS", "Boostrap", "Education"],
             "Descriptions": ["Turbo Math is a responsive solo/multiplayer website game in React JS with Firebase Real-Time Database, helping students improve mental arithmetic and track their progress. It also has personalized, real-time data-driven visualizations using D3 JS to help students monitor and assess their learning progress."] 
         },
+        "SpaceInvaders":{
+            "Name": "Clumsy Invaders",
+            "Icon": "",
+            "Date": "06-01-2023",
+            "Images": ["/Portfolio/img/SI1.png", "/Portfolio/img/SI2.png", "/Portfolio/img/SI3.png"],
+            "File": "",
+            "GitRepository": "",
+            "LinkToSite": "",
+            "Categories": ["Unity", "C#"],
+            "Descriptions": ["Remixing on Space Invaders where the Space Invaders (Humans in space ships) are invading the luxurious Clumsy Ghost Town and the Clumsy Ghosts (Fireball, Reaper, etc.) are determined to defend it.",
+            "Unleash ghostly abilities and rewrite arcade history in Clumsy Ghosts: Galactic Invasion, the ultimate fusion of Space Invaders and adorable yet tricky specters!"]
+        },
         "HateSpeechClassifier":{
             "Name": "Hate Speech Classifier",
             "Icon": "/Portfolio/img/twitter.png",
