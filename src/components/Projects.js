@@ -34,14 +34,25 @@ const Projects = () =>{
                         ]
 
     const projects  = {
+        "OPGG": {
+            "Name": "OP.GG Dupe (WIP)",
+            "Icon": "/Portfolio/img/opgg1.png",
+            "Date": "10-24-2023",
+            "Images": ["/Portfolio/img/opgg2.png", "/Portfolio/img/opgg3.png"],
+            "File": "",
+            "GitRepository": "https://github.com/dcheung0720/Hwei-Trainer",
+            "LinkToSite": "https://dcheung0720.github.io/Hwei-Trainer/",
+            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Boostrap", "Data Visualization"],
+            "Descriptions": ["OPGG Dupe is remake of the popular website OP.GG where League of Legends players reference it for Champion builds, game statistics, game history, etc. This application is made using ReactJS and Firebase using data from the RIOT API."] 
+        },
         "HweiTrainer": {
             "Name": "Hwei Trainer",
             "Icon": "/Portfolio/img/Hwei3.png",
             "Date": "10-24-2023",
             "Images": ["/Portfolio/img/Hwei1.png", "/Portfolio/img/Hwei2.png"],
             "File": "",
-            "GitRepository": "https://github.com/dcheung0720/Hwei-Trainer",
-            "LinkToSite": "https://dcheung0720.github.io/Hwei-Trainer/",
+            "GitRepository": "https://github.com/bli698/op.gg_dupe",
+            "LinkToSite": "",
             "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Boostrap", "Local Storage"],
             "Descriptions": ["Hwei Trainer is a quick and straightforward online game that provides players with an opportunity to enhance their skills with the versatile champion Hwei from League of Legends."] 
         },
@@ -174,7 +185,7 @@ const Projects = () =>{
         }
     };
 
-    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)", width: "100%"}}>
+    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)", width: "80%"}}>
         <Row style = {{display: "flex", justifyContent: "left", alignItems:"center", margin: 10}}>
             <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> 
             {
@@ -199,6 +210,7 @@ const Projects = () =>{
                     <Card md = {12} xs = {12} lg = {12} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll" }}>
                         <h1 style = {{marginTop: "10px", display: "flex", justifyContent: "center"}}>
                             {item["Name"]} 
+                            &nbsp;
                             {item["Icon"] !== "" && <img src = {item["Icon"]} style = {{borderRadius: "50%", width: "50px", height: "50px"}}></img>}
                         </h1>
                         <Card.Title>
