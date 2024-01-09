@@ -42,7 +42,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/Hwei-Trainer",
             "LinkToSite": "https://dcheung0720.github.io/Hwei-Trainer/",
-            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Boostrap", "Data Visualization"],
+            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Boostrap", "Data Visualization", "Favorite"],
             "Descriptions": ["OPGG Dupe is remake of the popular website OP.GG where League of Legends players reference it for Champion builds, game statistics, game history, etc. This application is made using ReactJS and Firebase using data from the RIOT API."] 
         },
         "HweiTrainer": {
