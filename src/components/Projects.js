@@ -7,13 +7,15 @@ import { useState } from 'react';
 import File from './File';
 import './Projects.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDatabase, faList, faUpRightFromSquare, faCode, faFlask, faGear, faGears, faEyeLowVision, faChartSimple, faSchool, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
+import { faDatabase, faList, faUpRightFromSquare, faCode, faFlask, faGear, faGears, faEyeLowVision, faChartSimple, faSchool, faScaleBalanced, faStar, faPaintbrush} from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap } from '@fortawesome/free-brands-svg-icons';
 import ImageCarousel from './ImageCarousel';
 
 const Projects = () =>{
 
-    const categories = [{"name": "ReactJS", "icon": faReact},
+    const categories = [
+                        {"name": "Favorite", "icon": faStar, "color": "#fff700"},
+                        {"name": "ReactJS", "icon": faReact},
                         {"name": "React Native", "icon": faReact}, 
                         {"name": "Unity", "icon": faUnity}, 
                         {"name": "Javascript", "icon": faJs}, 
@@ -32,6 +34,17 @@ const Projects = () =>{
                         ]
 
     const projects  = {
+        "HweiTrainer": {
+            "Name": "Hwei Trainer",
+            "Icon": "/Portfolio/img/Hwei3.png",
+            "Date": "10-24-2023",
+            "Images": ["/Portfolio/img/Hwei1.png", "/Portfolio/img/Hwei2.png"],
+            "File": "",
+            "GitRepository": "https://github.com/dcheung0720/Hwei-Trainer",
+            "LinkToSite": "https://dcheung0720.github.io/Hwei-Trainer/",
+            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Boostrap", "Local Storage"],
+            "Descriptions": ["Hwei Trainer is a quick and straightforward online game that provides players with an opportunity to enhance their skills with the versatile champion Hwei from League of Legends."] 
+        },
         "MotivCookies": {
             "Name": "MotivCookies",
             "Icon": "/Portfolio/img/cookies.png",
@@ -51,12 +64,12 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/TurboMath",
             "LinkToSite": "https://turbomath-a0c94.web.app/",
-            "Categories": ["Data Visualization", "ReactJS", "HTML5", "Javascript", "CSS", "Boostrap", "Education"],
+            "Categories": ["Data Visualization", "ReactJS", "HTML5", "Javascript", "CSS", "Boostrap", "Education", "Favorite"],
             "Descriptions": ["Turbo Math is a responsive solo/multiplayer website game in React JS with Firebase Real-Time Database, helping students improve mental arithmetic and track their progress. It also has personalized, real-time data-driven visualizations using D3 JS to help students monitor and assess their learning progress."] 
         },
         "SpaceInvaders":{
             "Name": "Clumsy Invaders",
-            "Icon": "",
+            "Icon": "/Portfolio/img/SI.png",
             "Date": "06-01-2023",
             "Images": ["/Portfolio/img/SI1.png", "/Portfolio/img/SI2.png", "/Portfolio/img/SI3.png"],
             "File": "",
@@ -86,7 +99,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/LCBH-Help-Desk",
             "LinkToSite": "",
-            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law", "Python3", "Flask"],
+            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law", "Python3", "Flask", "Favorite"],
             "Descriptions": ["Developed a complementary web application using ReactJS with MongoDB in the Help Scout platform to decrease turnaround response times for housing inquiries.",
                             "Built a backend API in Flask that fetches data from Help Scout and compute classification predictions.",
                             "Applied machine learning (KNN) classification to automatically classify the type of the inquiry and select a canned response that a paralegal can use to quickly reply to a tenant’s inquiry." ]
@@ -167,7 +180,7 @@ const Projects = () =>{
             {
                 categories.map(cat => 
                 <Button onClick={(e) => handleFilter(e)} style = {{ margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat["name"])? 0.5: 1}} variant="primary">             
-                        {cat["name"]} <FontAwesomeIcon  icon={cat["icon"]} />
+                        {cat["name"]} <FontAwesomeIcon  icon={cat["icon"]} color = {cat["color"]? cat["color"]: ""}/>
                 </Button>)
             }
         </Row>
