@@ -8,7 +8,7 @@ import File from './File';
 import './Projects.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faList, faUpRightFromSquare, faCode, faFlask, faGear, faGears, faEyeLowVision, faChartSimple, faSchool, faScaleBalanced, faStar, faPaintbrush} from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap, faPython } from '@fortawesome/free-brands-svg-icons';
 import ImageCarousel from './ImageCarousel';
 
 const Projects = () =>{
@@ -18,47 +18,61 @@ const Projects = () =>{
                         {"name": "ReactJS", "icon": faReact},
                         {"name": "React Native", "icon": faReact}, 
                         {"name": "Unity", "icon": faUnity}, 
-                        {"name": "Javascript", "icon": faJs}, 
+                        {"name": "Javascript", "icon": faJs},
+                        {"name": "Python3", "icon": faPython}, 
                         {"name": "SQL", "icon": faDatabase}, 
                         {"name": "C#", "icon": faCode}, 
                         {"name": "HTML5", "icon":  faHtml5}, 
                         {"name": "CSS", "icon": faCss3}, 
-                        {"name": "Boostrap", "icon": faBootstrap}, 
-                        {"name": "Flask", "icon": faFlask}, 
+                        {"name": "Bootstrap", "icon": faBootstrap}, 
+                        {"name": "Flask", "icon": faFlask},
+                        {"name": "Data Visualization", "icon": faChartSimple},  
                         {"name": "Machine Learning", "icon": faGear}, 
                         {"name": "Deep Learning", "icon": faGears}, 
                         {"name": "Computer Vision", "icon": faEyeLowVision}, 
-                        {"name": "Data Visualization", "icon": faChartSimple}, 
                         {"name": "Education", "icon": faSchool}, 
                         {"name": "Law", "icon": faScaleBalanced}, 
                         ]
 
     const projects  = {
+        "Crash Fatality Analysis": {
+            "Name": "Crash Fatality Analysis",
+            "Icon": "/Portfolio/img/Crash Fatality Analysis/Analysis.jpg",
+            "Date": "2-14-2024",
+            "Images": ["/Portfolio/img/Crash Fatality Analysis/Fatality_Per_Capita.png", "/Portfolio/img/Crash Fatality Analysis/Pairwise.png", "/Portfolio/img/Crash Fatality Analysis/Logistic Regression.png"],
+            "File": "",
+            "GitRepository": "https://github.com/dcheung0720/Data-Wizards-1",
+            "LinkToSite": "",
+            "Categories": ["Data Visualization", "Favorite", "Python3", "Data Visualization"],
+            "Descriptions": ["My Team and I analyzed the fatal crashes using the data from the National Highway Traffic Association's API. We performed exploratory data analysis and visualizations using analytic tools like Python, pandas, hvplots, and matplotlib.",
+                                "Our goal is to discern how certain factors correlate with fatalities, identifying potential risk factors to inform strategies for reducing future fatalities."
+                            ] 
+        },
         "OPGG": {
             "Name": "OP.GG Dupe (WIP)",
-            "Icon": "/Portfolio/img/opgg1.png",
+            "Icon": "/Portfolio/img/OPGG/opgg1.png",
             "Date": "12-24-2023",
-            "Images": ["/Portfolio/img/opgg2.png", "/Portfolio/img/opgg3.png"],
+            "Images": ["/Portfolio/img/OPGG/opgg2.png", "/Portfolio/img/OPGG/opgg3.png"],
             "File": "",
             "GitRepository": "https://github.com/bli698/op.gg_dupe",
             "LinkToSite": "",
-            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Boostrap", "Data Visualization", "Favorite"],
+            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Bootstrap", "Data Visualization", "Favorite"],
             "Descriptions": ["OPGG Dupe is remake of the popular website OP.GG where League of Legends players reference it for Champion builds, game statistics, game history, etc. This application is made using ReactJS and Firebase using data from the RIOT API."] 
         },
         "HweiTrainer": {
             "Name": "Hwei Trainer",
-            "Icon": "/Portfolio/img/Hwei3.png",
+            "Icon": "/Portfolio/img/Hwei/Hwei3.png",
             "Date": "12-01-2023",
-            "Images": ["/Portfolio/img/Hwei1.png", "/Portfolio/img/Hwei2.png"],
+            "Images": ["/Portfolio/img/Hwei/Hwei1.png", "/Portfolio/img/Hwei/Hwei2.png"],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/Hwei-Trainer",
             "LinkToSite": "https://dcheung0720.github.io/Hwei-Trainer/",
-            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Boostrap", "Local Storage"],
+            "Categories": [ "ReactJS","HTML5", "Javascript", "CSS", "Bootstrap", "Local Storage"],
             "Descriptions": ["Hwei Trainer is a quick and straightforward online game that provides players with an opportunity to enhance their skills with the versatile champion Hwei from League of Legends."] 
         },
         "MotivCookies": {
             "Name": "MotivCookies",
-            "Icon": "/Portfolio/img/cookies.png",
+            "Icon": "/Portfolio/img/Cookies/cookies.png",
             "Date": "10-24-2023",
             "Images": [],
             "File": "",
@@ -69,20 +83,20 @@ const Projects = () =>{
         },
         "TurboMath": {
             "Name": "Turbo Math",
-            "Icon": "/Portfolio/img/Turbo.png",
+            "Icon": "/Portfolio/img/TurboMath/Turbo.png",
             "Date": "06-24-2023",
-            "Images": ["/Portfolio/img/TurboMath.png", "/Portfolio/img/TurboMath6.png", "/Portfolio/img/TurboMath3.png", "/Portfolio/img/TurboMath2.png","/Portfolio/img/TurboMath4.png","/Portfolio/img/TurboMath5.png"],
+            "Images": ["/Portfolio/img/TurboMath/TurboMath.png", "/Portfolio/img/TurboMath/TurboMath6.png", "/Portfolio/img/TurboMath/TurboMath3.png", "/Portfolio/img/TurboMath/TurboMath2.png","/Portfolio/img/TurboMath/TurboMath4.png","/Portfolio/img/TurboMath/TurboMath5.png"],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/TurboMath",
             "LinkToSite": "https://turbomath-a0c94.web.app/",
-            "Categories": ["Data Visualization", "ReactJS", "HTML5", "Javascript", "CSS", "Boostrap", "Education", "Favorite"],
+            "Categories": ["Data Visualization", "ReactJS", "HTML5", "Javascript", "CSS", "Bootstrap", "Education", "Favorite"],
             "Descriptions": ["Turbo Math is a responsive solo/multiplayer website game in React JS with Firebase Real-Time Database, helping students improve mental arithmetic and track their progress. It also has personalized, real-time data-driven visualizations using D3 JS to help students monitor and assess their learning progress."] 
         },
         "SpaceInvaders":{
             "Name": "Clumsy Invaders",
-            "Icon": "/Portfolio/img/SI.png",
+            "Icon": "/Portfolio/img/SI/SI.png",
             "Date": "06-01-2023",
-            "Images": ["/Portfolio/img/SI1.png", "/Portfolio/img/SI2.png", "/Portfolio/img/SI3.png"],
+            "Images": ["/Portfolio/img/SI/SI1.png", "/Portfolio/img/SI/SI2.png", "/Portfolio/img/SI/SI3.png"],
             "File": "",
             "GitRepository": "",
             "LinkToSite": "",
@@ -92,9 +106,9 @@ const Projects = () =>{
         },
         "HateSpeechClassifier":{
             "Name": "Hate Speech Classifier",
-            "Icon": "/Portfolio/img/twitter.png",
+            "Icon": "/Portfolio/img/Hate Speech Classifier/twitter.png",
             "Date": "03-03-2023",
-            "Images": ["/Portfolio/img/classification1.png","/Portfolio/img/classification2.png","/Portfolio/img/classification3.png","/Portfolio/img/classification4.png",],
+            "Images": ["/Portfolio/img/Hate Speech Classifier/classification1.png","/Portfolio/img/Hate Speech Classifier/classification2.png","/Portfolio/img/Hate Speech Classifier/classification3.png","/Portfolio/img/classification4.png",],
             "File": "/Portfolio/files/ClassifierReport.pdf",
             "GitRepository": "https://github.com/cs449w23/project-stop-sign",
             "LinkToSite": "",
@@ -104,13 +118,13 @@ const Projects = () =>{
         },
         "ResponseGenie":{
             "Name": "Response Genie",
-            "Icon": "/Portfolio/img/genie.png",
+            "Icon": "/Portfolio/img/Response Genie/genie.png",
             "Date": "01-03-2023",
-            "Images": ["/Portfolio/img/ResponseGenie.png"],
+            "Images": ["/Portfolio/img/Response Genie/ResponseGenie.png"],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/LCBH-Help-Desk",
             "LinkToSite": "",
-            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Boostrap", "Law", "Python3", "Flask", "Favorite"],
+            "Categories": ["Machine Learning", "ReactJS", "Javascript", "HTML5", "CSS", "Bootstrap", "Law", "Python3", "Flask", "Favorite"],
             "Descriptions": ["Developed a complementary web application using ReactJS with MongoDB in the Help Scout platform to decrease turnaround response times for housing inquiries.",
                             "Built a backend API in Flask that fetches data from Help Scout and compute classification predictions.",
                             "Applied machine learning (KNN) classification to automatically classify the type of the inquiry and select a canned response that a paralegal can use to quickly reply to a tenant’s inquiry." ]
@@ -119,7 +133,7 @@ const Projects = () =>{
             "Name": "Last Stand",
             "Icon": "",
             "Date": "01-03-2023",
-            "Images": ["/Portfolio/img/last_stand.png", "/Portfolio/img/last_stand2.png"],
+            "Images": ["/Portfolio/img/Last Stand/last_stand.png", "/Portfolio/img/Last Stand/last_stand2.png"],
             "File": "",
             "GitRepository": "https://github.com/sell488/Last-Stand",
             "LinkToSite": "",
@@ -128,9 +142,9 @@ const Projects = () =>{
         },
         "Gesic":{
             "Name": "Gesic",
-            "Icon": "/Portfolio/img/music.png",
+            "Icon": "/Portfolio/img/Gesic/music.png",
             "Date": "11-25-2023",
-            "Images": ["/Portfolio/img/Gesic.png", "/Portfolio/img/Gesic2.png", "/Portfolio/img/Gesic3.png"],
+            "Images": ["/Portfolio/img/Gesic/Gesic.png", "/Portfolio/img/Gesic/Gesic2.png", "/Portfolio/img/Gesic/Gesic3.png"],
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/EE332-Gesic",
             "LinkToSite": "",
@@ -150,9 +164,9 @@ const Projects = () =>{
         },
         "StayHydrated":{
             "Name": "StayHydrated",
-            "Icon": "/Portfolio/img/hydrated.png",
+            "Icon": "/Portfolio/img/Hydration/hydrated.png",
             "Date": "10-01-2022",
-            "Images": ["/Portfolio/img/hydration.png",],
+            "Images": ["/Portfolio/img/Hydration/hydration.png",],
             "File": "",
             "GitRepository": "https://github.com/397-f22/iSeekNU",
             "LinkToSite": "http://www.responsinator.com/?url=https%3A%2F%2Fstayhydrated-41d70.firebaseapp.com%2F",
