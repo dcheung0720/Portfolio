@@ -52,7 +52,7 @@ const Projects = () =>{
             "Name": "OP.GG Dupe (WIP)",
             "Icon": "/Portfolio/img/OPGG/opgg1.png",
             "Date": "12-24-2023",
-            "Images": ["/Portfolio/img/OPGG/opgg2.png", "/Portfolio/img/OPGG/opgg3.png"],
+            "Images": [ "/Portfolio/img/OPGG/opgg3.png", "/Portfolio/img/OPGG/opgg2.png"],
             "File": "",
             "GitRepository": "https://github.com/bli698/op.gg_dupe",
             "LinkToSite": "",
