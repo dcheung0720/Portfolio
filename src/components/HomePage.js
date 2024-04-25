@@ -24,7 +24,7 @@ const HomePage = () =>{
                                         <Typewriter
                                         onInit={(typewriter) => {
                                             typewriter
-                                            .typeString('<span>I create <span class = "popOut"> Web </span> and <span class = "popOut"> Mobile Apps </span> that solve people\'s problems.</span>')
+                                            .typeString('<span>I create <span class = "popOut"> Web Apps </span> and <span class = "popOut"> Visualizations </span> that solve people\'s problems.</span>')
                                             .start();
                                         }}
                                         />
