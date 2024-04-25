@@ -35,6 +35,20 @@ const Projects = () =>{
                         ]
 
     const projects  = {
+        "Chicago Crime Rate Analysis": {
+            "Name": "Chi. Crime Analysis",
+            "Icon": "/Portfolio/img/Crash Fatality Analysis/Analysis.jpg",
+            "Date": "4-14-2024",
+            "Images": ["/Portfolio/img/Chicago Crime/1.png", "/Portfolio/img/Chicago Crime/2.png","/Portfolio/img/Chicago Crime/3.png"],
+            "File": "",
+            "GitRepository": "https://github.com/dcheung0720/Quantum-Queries",
+            "LinkToSite": "https://chicagocrimeanalysis-a24e2.web.app/",
+            "Categories": ["ReactJS", "HTML5", "Data Visualization", "Favorite", "Python3", "Data Visualization"],
+            "Descriptions": ["My Team and I analyzed the crimes in Chicago from 2017 - 2023 aiming to answer the question of whether Chicago is becoming more dangerous."
+                            ,"The analysis and visualizations were done using Python libraries, React d3, and React Leaflet."
+                            ]
+        }, 
+
         "Crash Fatality Analysis": {
             "Name": "Crash Fatality Analysis",
             "Icon": "/Portfolio/img/Crash Fatality Analysis/Analysis.jpg",
@@ -221,7 +235,7 @@ const Projects = () =>{
                 }))
                 .map(item => {
                 return(
-                    <Card md = {12} xs = {12} lg = {12} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll" }}>
+                    <Card md = {12} xs = {12} lg = {12} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll"}}>
                         <h1 style = {{marginTop: "10px", display: "flex", justifyContent: "center"}}>
                             {item["Name"]} 
                             &nbsp;
@@ -244,7 +258,7 @@ const Projects = () =>{
                             <div>
                                 <h4>Description <FontAwesomeIcon icon={faList} /></h4>
                                 <ul>
-                                    {item.Descriptions.map(x => <li style = {{fontSize: "15px"}}>
+                                    {item.Descriptions.map(x => <li style = {{fontSize: "15px", paddingBottom: "15px"}}>
                                         {x}
                                     </li>)}
                                 </ul>
