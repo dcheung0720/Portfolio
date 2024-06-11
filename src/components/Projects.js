@@ -35,6 +35,21 @@ const Projects = () =>{
                         ]
 
     const projects  = {
+
+        "UFC Meta": {
+            "Name": "UFC Meta",
+            "Icon": "/Portfolio/img/UFC Meta/logo.png",
+            "Date": "5-14-2024",
+            "Images": ["/Portfolio/img/UFC Meta/1.png"],
+            "File": "",
+            "GitRepository": "",
+            "LinkToSite": "https://ufc-meta.web.app/",
+            "Categories": ["ReactJS", "Javascript", "HTML5", "Machine Learning", "Deep Learning", "Favorite", "Python3"],
+            "Descriptions": ["The React App uses a Deep Learning model to predict the outcomes of the upcoming UFC fights using Tensorflow JS.",
+                             "Conduct proportions statistical tests on fighter's historical Data."
+                            ]
+        },
+
         "Chicago Crime Rate Analysis": {
             "Name": "Chi. Crime Analysis",
             "Icon": "/Portfolio/img/Crash Fatality Analysis/Analysis.jpg",
@@ -43,7 +58,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/Quantum-Queries",
             "LinkToSite": "https://chicagocrimeanalysis-a24e2.web.app/",
-            "Categories": ["ReactJS", "HTML5", "Data Visualization", "Favorite", "Python3", "Data Visualization"],
+            "Categories": ["ReactJS", "Javascript", "HTML5", "Data Visualization", "Favorite", "Python3", "Data Visualization"],
             "Descriptions": ["My Team and I analyzed the crimes in Chicago from 2017 - 2023 aiming to answer the question of whether Chicago is becoming more dangerous."
                             ,"The analysis and visualizations were done using Python libraries, React d3, and React Leaflet."
                             ]
@@ -57,7 +72,7 @@ const Projects = () =>{
             "File": "",
             "GitRepository": "https://github.com/dcheung0720/Data-Wizards-1",
             "LinkToSite": "",
-            "Categories": ["Data Visualization", "Favorite", "Python3", "Data Visualization"],
+            "Categories": ["Data Visualization", "Favorite", "Python3"],
             "Descriptions": ["My Team and I analyzed the fatal crashes using the data from the National Highway Traffic Association's API. We performed exploratory data analysis and visualizations using analytic tools like Python, pandas, hvplots, and matplotlib.",
                                 "Our goal is to discern how certain factors correlate with fatalities, identifying potential risk factors to inform strategies for reducing future fatalities."
                             ] 
@@ -213,9 +228,9 @@ const Projects = () =>{
         }
     };
 
-    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)", width: "80%"}}>
+    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)", width: "1900px"}}>
         <Row style = {{display: "flex", justifyContent: "left", alignItems:"center", margin: 10}}>
-            <span style = {{fontSize: "25px", }}> <b>Filter (OR): </b> </span> 
+            <span style = {{fontSize: "25px", }}> <b>Filter (AND): </b> </span> 
             {
                 categories.map(cat => 
                 <Button onClick={(e) => handleFilter(e)} style = {{ margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat["name"])? 0.5: 1}} variant="primary">             
@@ -225,15 +240,11 @@ const Projects = () =>{
         </Row>
         <Row>
             <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap", width: "100%"}}>{
-            Object.values(projects).filter(
-                item => item["Categories"].some(
-                item  => {
-                    if(selected.length != 0){
-                        return selected.includes(item)
-                    }
-                    return true;
-                }))
-                .map(item => {
+                Object.values(projects).filter(
+                    item => selected.every(
+                        category => item["Categories"].includes(category)
+                    )
+                ).map(item => {
                 return(
                     <Card md = {12} xs = {12} lg = {12} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll"}}>
                         <h1 style = {{marginTop: "10px", display: "flex", justifyContent: "center"}}>

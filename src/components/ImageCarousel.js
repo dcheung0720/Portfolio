@@ -4,7 +4,6 @@ import Image from 'react-bootstrap/Image';
 
 const ImageCarousel = ({images}) =>{
     const [index, setIndex] = useState(0);
-    console.log(images)
     const handleSelect = (selectedIndex) => {
       setIndex(selectedIndex);
     };
