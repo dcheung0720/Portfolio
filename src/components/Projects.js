@@ -228,8 +228,8 @@ const Projects = () =>{
         }
     };
 
-    return (<Container  style = {{position: "absolute", top: 100, left: "50%", transform: "translate(-50%, 0)", width: "1900px"}}>
-        <Row style = {{display: "flex", justifyContent: "left", alignItems:"center", margin: 10}}>
+    return (<div style = {{position: "absolute", top: 70}}>
+        <Row style = {{display: "flex", justifyContent: "center", alignItems:"center", margin: 10}}>
             <span style = {{fontSize: "25px", }}> <b>Filter (AND): </b> </span> 
             {
                 categories.map(cat => 
@@ -279,7 +279,7 @@ const Projects = () =>{
                 )
             })}</Col>
         </Row>
-    </Container>)
+    </div>)
 }
 
 export default Projects;
