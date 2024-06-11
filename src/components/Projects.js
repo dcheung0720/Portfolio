@@ -8,7 +8,7 @@ import File from './File';
 import './Projects.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faList, faUpRightFromSquare, faCode, faFlask, faGear, faGears, faEyeLowVision, faChartSimple, faSchool, faScaleBalanced, faStar, faPaintbrush} from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap, faPython } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap, faPython, faAws } from '@fortawesome/free-brands-svg-icons';
 import ImageCarousel from './ImageCarousel';
 
 const Projects = () =>{
@@ -16,9 +16,10 @@ const Projects = () =>{
     const categories = [
                         {"name": "Favorite", "icon": faStar, "color": "#fff700"},
                         {"name": "ReactJS", "icon": faReact},
+                        {"name": "Javascript", "icon": faJs},
+                        {"name": "AWS", "icon": faAws},
                         {"name": "React Native", "icon": faReact}, 
                         {"name": "Unity", "icon": faUnity}, 
-                        {"name": "Javascript", "icon": faJs},
                         {"name": "Python3", "icon": faPython}, 
                         {"name": "SQL", "icon": faDatabase}, 
                         {"name": "C#", "icon": faCode}, 
@@ -49,7 +50,20 @@ const Projects = () =>{
                              "Conduct proportions statistical tests on fighter's historical Data."
                             ]
         },
-
+        "Cardio Disease": {
+            "Name": "Heart Disease Analysis",
+            "Icon": "/Portfolio/img/Crash Fatality Analysis/Analysis.jpg",
+            "Date": "5-14-2024",
+            "Images": ["/Portfolio/img/Cardio Disease/1.png", "/Portfolio/img/Cardio Disease/2.png"],
+            "File": "",
+            "GitRepository": "https://github.com/daynerco/Project4/tree/David",
+            "LinkToSite": "https://data-insiders.web.app/",
+            "Categories": ["ReactJS", "Javascript", "HTML5", "Machine Learning", "Deep Learning", "Favorite", "Python3", "Data Visualization", "AWS"],
+            "Descriptions": ["My team and I cleaned and analyzed a cardiovascular disease dataset and created a Deep Learning model for binary classification.",
+                             "Used AWS tools such as DynamoDB, API Gateway, Lambda for data retrieval.",             
+                             "Created a web app for model usage and data visualizations.",
+                            ]
+        },
         "Chicago Crime Rate Analysis": {
             "Name": "Chi. Crime Analysis",
             "Icon": "/Portfolio/img/Crash Fatality Analysis/Analysis.jpg",
@@ -228,7 +242,7 @@ const Projects = () =>{
         }
     };
 
-    return (<div style = {{position: "absolute", top: 70}}>
+    return (<div style = {{position: "absolute", top: 70, marginLeft: "15px", marginRight: "15px"}}>
         <Row style = {{display: "flex", justifyContent: "center", alignItems:"center", margin: 10}}>
             <span style = {{fontSize: "25px", }}> <b>Filter (AND): </b> </span> 
             {
