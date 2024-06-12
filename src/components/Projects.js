@@ -280,9 +280,7 @@ const Projects = () =>{
                                 {item["Icon"] !== "" && <img src = {item["Icon"]} style = {{borderRadius: "50%", width: "50px", height: "50px"}}></img>}
                             </h1>
                             <Card.Title>
-                                {item["Images"].length === 1? 
-                                    <Card.Img  src= {item["Images"][0]}  style = {{padding: "10px", height: "auto", width: "100%"}} /> 
-                                : item["Images"].length > 1?  <ImageCarousel images = {item["Images"]} handleImageOpen={handleImageOpen} setImageLinks={setImageLinks}></ImageCarousel>: <></>} 
+                                    <ImageCarousel images = {item["Images"]} handleImageOpen={handleImageOpen} setImageLinks={setImageLinks}></ImageCarousel>
                             </Card.Title>
                             <Card.Body style = {{textAlign: "left"}}>
                                 {item["LinkToSite"] !== "" && <div>
