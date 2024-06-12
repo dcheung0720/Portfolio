@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faList, faUpRightFromSquare, faCode, faFlask, faGear, faGears, faEyeLowVision, faChartSimple, faSchool, faScaleBalanced, faStar, faPaintbrush} from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faReact, faUnity, faJs, faCss3, faHtml5, faBootstrap, faPython, faAws } from '@fortawesome/free-brands-svg-icons';
 import ImageCarousel from './ImageCarousel';
+import ImageDeck from './ImageDeck';
 
 const Projects = () =>{
 
@@ -231,6 +232,15 @@ const Projects = () =>{
 
     const [selected, setSelected] = useState([]);
 
+    // image popout state
+    const [imageDeckOpened, setImageDeckOpened] = useState(false);
+    const [imageLinks, setImageLinks] = useState([]);
+    const handleImageOpen = (e) =>{
+        setImageDeckOpened(prev => !prev);
+    };  
+
+    console.log(imageDeckOpened);
+
     const handleFilter = (e) =>{
         const regex = /(.*?)(?=<svg)/;
         const match = e.currentTarget.innerHTML.match(regex);
@@ -242,58 +252,62 @@ const Projects = () =>{
         }
     };
 
-    return (<div style = {{position: "absolute", top: 70, marginLeft: "15px", marginRight: "15px"}}>
-        <Row style = {{display: "flex", justifyContent: "center", alignItems:"center", margin: 10}}>
-            <span style = {{fontSize: "25px", }}> <b>Filter (AND): </b> </span> 
-            {
-                categories.map(cat => 
-                <Button onClick={(e) => handleFilter(e)} style = {{ margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat["name"])? 0.5: 1}} variant="primary">             
-                        {cat["name"]} <FontAwesomeIcon  icon={cat["icon"]} color = {cat["color"]? cat["color"]: ""}/>
-                </Button>)
-            }
-        </Row>
-        <Row>
-            <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap", width: "100%"}}>{
-                Object.values(projects).filter(
-                    item => selected.every(
-                        category => item["Categories"].includes(category)
+    return (
+        <>
+        {imageDeckOpened && <ImageDeck images = {imageLinks} handleImageOpen = {handleImageOpen}></ImageDeck>}
+        <div style = {{position: "absolute", top: 70, marginLeft: "15px", marginRight: "15px"}}>
+            <Row style = {{display: "flex", justifyContent: "center", alignItems:"center", margin: 10}}>
+                <span style = {{fontSize: "25px", }}> <b>Filter (AND): </b> </span> 
+                {
+                    categories.map(cat => 
+                    <Button onClick={(e) => handleFilter(e)} style = {{ margin: "5px", opacity: selected.length === 0? 1: !selected.includes(cat["name"])? 0.5: 1}} variant="primary">             
+                            {cat["name"]} <FontAwesomeIcon  icon={cat["icon"]} color = {cat["color"]? cat["color"]: ""}/>
+                    </Button>)
+                }
+            </Row>
+            <Row>
+                <Col style = {{display: "flex", justifyContent:"center", flexWrap: "wrap", width: "100%"}}>{
+                    Object.values(projects).filter(
+                        item => selected.every(
+                            category => item["Categories"].includes(category)
+                        )
+                    ).map(item => {
+                    return(
+                        <Card md = {12} xs = {12} lg = {12} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll"}}>
+                            <h1 style = {{marginTop: "10px", display: "flex", justifyContent: "center"}}>
+                                {item["Name"]} 
+                                &nbsp;
+                                {item["Icon"] !== "" && <img src = {item["Icon"]} style = {{borderRadius: "50%", width: "50px", height: "50px"}}></img>}
+                            </h1>
+                            <Card.Title>
+                                {item["Images"].length === 1? 
+                                    <Card.Img  src= {item["Images"][0]}  style = {{padding: "10px", height: "auto", width: "100%"}} /> 
+                                : item["Images"].length > 1?  <ImageCarousel images = {item["Images"]} handleImageOpen={handleImageOpen} setImageLinks={setImageLinks}></ImageCarousel>: <></>} 
+                            </Card.Title>
+                            <Card.Body style = {{textAlign: "left"}}>
+                                {item["LinkToSite"] !== "" && <div>
+                                    <h4>Link to site <FontAwesomeIcon icon={faUpRightFromSquare} /></h4>
+                                    <a target='_blank' href = {item["LinkToSite"]}>{item["Name"]} <FontAwesomeIcon icon={faUpRightFromSquare} /></a>
+                                </div>}
+                                {item["GitRepository"] !== "" && <div>
+                                    <h4>Git Repository <FontAwesomeIcon icon={faGithub} /></h4>
+                                    <a target='_blank' href = {item["GitRepository"]}>{item["GitRepository"]}</a>
+                                </div>}
+                                <div>
+                                    <h4>Description <FontAwesomeIcon icon={faList} /></h4>
+                                    <ul>
+                                        {item.Descriptions.map(x => <li style = {{fontSize: "15px", paddingBottom: "15px"}}>
+                                            {x}
+                                        </li>)}
+                                    </ul>
+                                </div>
+                            </Card.Body>
+                        </Card>
                     )
-                ).map(item => {
-                return(
-                    <Card md = {12} xs = {12} lg = {12} style={{width: "500px",height: "500px", border: "3px solid white", borderRadius: "5%", backgroundColor: "black", margin: "10px", overflowY: "scroll"}}>
-                        <h1 style = {{marginTop: "10px", display: "flex", justifyContent: "center"}}>
-                            {item["Name"]} 
-                            &nbsp;
-                            {item["Icon"] !== "" && <img src = {item["Icon"]} style = {{borderRadius: "50%", width: "50px", height: "50px"}}></img>}
-                        </h1>
-                        <Card.Title>
-                            {item["Images"].length === 1? 
-                                <Card.Img  src= {item["Images"][0]}  style = {{padding: "10px", height: "auto", width: "100%"}} /> 
-                            : item["Images"].length > 1?  <ImageCarousel images = {item["Images"]}></ImageCarousel>: <></>} 
-                        </Card.Title>
-                        <Card.Body style = {{textAlign: "left"}}>
-                            {item["LinkToSite"] !== "" && <div>
-                                <h4>Link to site <FontAwesomeIcon icon={faUpRightFromSquare} /></h4>
-                                <a target='_blank' href = {item["LinkToSite"]}>{item["Name"]} <FontAwesomeIcon icon={faUpRightFromSquare} /></a>
-                            </div>}
-                            {item["GitRepository"] !== "" && <div>
-                                <h4>Git Repository <FontAwesomeIcon icon={faGithub} /></h4>
-                                <a target='_blank' href = {item["GitRepository"]}>{item["GitRepository"]}</a>
-                            </div>}
-                            <div>
-                                <h4>Description <FontAwesomeIcon icon={faList} /></h4>
-                                <ul>
-                                    {item.Descriptions.map(x => <li style = {{fontSize: "15px", paddingBottom: "15px"}}>
-                                        {x}
-                                    </li>)}
-                                </ul>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                )
-            })}</Col>
-        </Row>
-    </div>)
+                })}</Col>
+            </Row>
+        </div>
+    </>)
 }
 
 export default Projects;
