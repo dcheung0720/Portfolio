@@ -12,10 +12,10 @@ const ImageDeck = ({images, handleImageOpen}) =>{
             display: "flex", justifyContent: "center", alignItems: "center"}}
             onClick={handleImageOpen}>
                 
-        <Carousel style={{zIndex: 200}} onClick={handleChildClick}>
+        <Carousel  style={{zIndex: 200, width: "70%", height: "auto"}} onClick={handleChildClick}>
             {images.map(link => 
                 <Carousel.Item>
-                    <img src = {link}></img>
+                    <img style={{zIndex: 200, width: "100%", height: "auto"}} src = {link}></img>
                 </Carousel.Item>
             )}
         </Carousel>
